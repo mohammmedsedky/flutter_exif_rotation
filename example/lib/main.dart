@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   final picker = ImagePicker();
 
   Future getImage() async {
-    final image = await picker.getImage(source: ImageSource.gallery);
+    final image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       File rotatedImage =
           await FlutterExifRotation.rotateImage(path: image.path);
@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future getImageAndSave() async {
-    final image = await picker.getImage(source: ImageSource.gallery);
+    final image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       File rotatedImage =
           await FlutterExifRotation.rotateAndSaveImage(path: image.path);
